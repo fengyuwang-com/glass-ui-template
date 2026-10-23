@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Glass UI Template</title>
+<script>try{var t=localStorage.getItem('glass-ui-theme');document.documentElement.dataset.theme=t==='dark'||t==='light'?t:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light')}catch(e){document.documentElement.dataset.theme=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'}</script>
+<link rel="stylesheet" href="source.css">
+<link rel="stylesheet" href="styles.css">
+<script defer src="components.js"></script>
+<script defer src="wallpaper.js"></script>
+</head>
+<body>
+<svg class="sr" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+ <symbol id="i-grid" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></g></symbol>
+ <symbol id="i-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m3 17 6-6 5 5 3-3 4 4"/><circle cx="16" cy="8" r="2"/></g></symbol>
+ <symbol id="i-type" viewBox="0 0 24 24"><path d="M4 5h16M12 5v15M8 20h8" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+ <symbol id="i-more" viewBox="0 0 24 24"><g fill="currentColor"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></g></symbol>
+ <symbol id="i-side" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16"/></g></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></g></symbol>
+</defs></svg>
+<a class="skip" href="#main-content">跳到主要内容</a>
+<div class="window" id="window">
+ <div class="desktop" aria-hidden="true"></div>
+ <div class="surface" aria-hidden="true"><div class="surface-blur"></div><div class="surface-tint"></div></div>
+ <nav class="sidebar chrome" id="sidebar" aria-label="主要导航">
+  <div class="sidehead"><span class="brandmark"><svg aria-hidden="true"><use href="#i-grid"/></svg></span><span class="bname">Glass UI Template</span></div>
+  <p class="sec">工作空间</p>
+  <div class="nav">
+   <a class="navrow" href="#components" data-pane="components" data-title="组件"><svg aria-hidden="true"><use href="#i-grid"/></svg>组件<span class="n">12</span></a>
+   <a class="navrow" href="#tokens" data-pane="tokens" data-title="设计令牌"><svg aria-hidden="true"><use href="#i-type"/></svg>设计令牌</a>
+   <a class="navrow" href="#wallpaper" data-pane="wallpaper" data-title="壁纸"><svg aria-hidden="true"><use href="#i-image"/></svg>壁纸</a>
+  </div>
+  <p class="sec">独立模板</p><p class="status">纯 HTML / CSS / JavaScript<br>演示内容全部虚构。没有连接服务。</p>
+  <div class="quickacts"><button class="quick" type="button" data-theme-toggle aria-pressed="false">切换主题</button></div>
+  <div id="navsel-all" data-on="0" aria-hidden="true"></div>
+ </nav>
+ <button class="ibtn" id="btn-side" type="button" aria-label="切换侧栏" aria-controls="sidebar" aria-expanded="true"><svg aria-hidden="true"><use href="#i-side"/></svg></button>
+ <div class="toolbar chrome" role="toolbar" aria-label="工具条"><div class="toolbar-inner">
+  <h1 class="ttl" id="ttl">组件</h1>
+  <div class="acts">
+   <label class="search"><svg aria-hidden="true"><use href="#i-search"/></svg><input id="component-search" type="search" placeholder="搜索组件" aria-label="搜索组件（Ctrl / ⌘ K）"></label>
+   <div class="more-wrap"><button class="ibtn" id="btn-more" type="button" aria-label="更多" aria-haspopup="menu" aria-expanded="false" aria-controls="more-menu"><svg aria-hidden="true"><use href="#i-more"/></svg></button>
+    <div class="menu" id="more-menu" role="menu" data-open="false">
+     <button class="menuitem" role="menuitem" type="button" data-theme-toggle>切换主题</button>
+     <button class="menuitem" role="menuitem" type="button" data-pane="wallpaper">壁纸设置</button>
+     <button class="menuitem" role="menuitem" type="button" data-toast="这是独立模板，没有连接外部服务。">关于模板</button>
+    </div>
+   </div>
+  </div>
+ </div></div>
+ <main class="content" id="main-content" tabindex="-1">
+ <section class="pane" id="pane-components" data-on="true" aria-labelledby="components-title">
+  <header class="phead"><h1 id="components-title">让熟悉的设计，成为起点。</h1><p>原版视觉源码抽取 · 可复用组件 · 无框架、零构建</p></header>
+  <p class="notice">所有操作仅影响当前演示或此浏览器的模板设置；不会发送请求。</p>
+  <section data-component="按钮 button 状态"><h2 class="ghead">按钮与状态</h2><div class="group pad">
+   <div class="rowbtns"><button class="btn primary" type="button" data-toast="主操作演示已触发。">主要操作</button><button class="btn" type="button" data-toast="次要操作演示已触发。">次要操作</button><button class="btn destructive" id="demo-confirm" type="button">危险操作…</button></div>
+   <div class="rowbtns"><button class="btn" type="button" disabled>不可用</button><button class="btn primary" type="button" disabled aria-busy="true">处理中</button><button class="btn" type="button" id="toggle-demo" aria-pressed="false">切换按钮</button></div>
+   <p class="meta">Hover / Active / Focus 用指针或 Tab 查看；禁用与忙碌状态为静态样例。</p>
+  </div></section>
+  <section data-component="表单 input select 搜索 校验"><h2 class="ghead">输入与选择</h2><form class="group pad" id="demo-form">
+   <div class="rw"><div><label class="fld-label" for="project-name">项目名称（必填）</label><input class="tin" id="project-name" placeholder="例如：云端画室" required maxlength="80"><p id="name-error" class="field-error" hidden>请输入项目名称。</p></div><div><label class="fld-label" for="project-kind">类型</label><select class="tin" id="project-kind"><option>设计研究</option><option>产品原型</option><option>内容创作</option></select></div></div>
+   <label class="fld-label" for="project-note">说明</label><textarea class="tin" id="project-note" rows="3" style="min-height:90px" placeholder="仅在当前页面中演示"></textarea>
+   <label class="check"><input type="checkbox" checked>启用本地预览</label>
+   <div class="rowbtns"><button class="btn primary" type="submit">校验表单</button><button class="btn" type="reset">重置</button></div>
+  </form></section>
+  <section data-component="列表 list 卡片 card 徽章 badge"><h2 class="ghead">列表、卡片与徽章</h2><div class="group">
+   <div class="row"><div class="rmain"><p class="rtit"><span class="dot hot"></span>晨光 / 视觉研究</p><p class="rsub">虚构项目 · 更新于今天</p></div><span class="badge success">进行中</span></div>
+   <button class="row" type="button" data-toast="点击的是虚构的项目行。"><div class="rmain"><p class="rtit">山间 / 概念草图</p><p class="rsub">可点击行，支持键盘 Enter 与 Space</p></div><span class="badge warning">待查看</span></button>
+   <div class="row"><div class="rmain"><p class="rtit">海风 / 归档样例</p><p class="rsub">只呈现组件，不读业务数据</p></div><span class="badge">已归档</span></div>
+  </div><div class="grid" style="margin-top:16px"><article class="card"><h3>标准内容材质</h3><p>实体内容层与浮起的导航玻璃保持分离。</p><span class="badge">草稿</span></article><article class="card"><h3>语义状态</h3><p><span class="badge success">正常</span> <span class="badge warning">注意</span> <span class="badge danger">错误</span></p></article></div></section>
+  <section data-component="分段 tab tabs"><h2 class="ghead">分段标签</h2><div class="group pad">
+   <div class="seg" role="tablist" aria-label="展示类型"><button id="tab-one" role="tab" type="button" aria-selected="true" aria-controls="tab-panel-one" tabindex="0">概览</button><button id="tab-two" role="tab" type="button" aria-selected="false" aria-controls="tab-panel-two" tabindex="-1">细节</button></div>
+   <div id="tab-panel-one" role="tabpanel" aria-labelledby="tab-one" tabindex="0"><p>概览内容。用左右方向键、Home / End 切换标签。</p></div><div id="tab-panel-two" role="tabpanel" aria-labelledby="tab-two" tabindex="0" hidden><p>细节内容。分段控件是原生 button，不使用伪链接。</p></div>
+  </div></section>
+  <section data-component="弹层 dialog 确认 confirm Toast 通知"><h2 class="ghead">弹层与反馈</h2><div class="group pad"><div class="rowbtns"><button class="btn" type="button" id="demo-dialog">打开弹层</button><button class="btn" type="button" data-toast="这是一条可关闭的 Toast。">显示 Toast</button><button class="btn" type="button" id="demo-error-toast">错误反馈</button></div><p class="meta">弹层支持焦点约束、Escape、背景隔离与关闭后焦点恢复。</p></div></section>
+  <section data-component="空态 empty 错误 error"><h2 class="ghead">空态与错误态</h2><div class="grid"><div class="group empty"><h3>这里还没有内容</h3><p>创建第一个虚构项目开始体验。</p><button class="btn" type="button" data-toast="此处只展示空态，不会创建业务记录。">开始体验</button></div><div class="error"><h3>无法加载（静态样例）</h3><p>生产应用应显示真实失败原因，不能把错误包装为成功。</p><button class="btn" type="button" data-toast="重试按钮演示；模板没有远程数据源。">重试演示</button></div></div></section>
+  <p class="empty" id="search-empty" hidden>没有匹配的组件。</p>
+ </section>
+ <section class="pane" id="pane-tokens" data-on="false" aria-labelledby="tokens-title" hidden>
+  <header class="phead"><h1 id="tokens-title">设计令牌</h1><p>直接保留原版语义色、材质、字体与形状系统。</p></header>
+  <div class="group pad stack"><h2 class="ghead">语义色</h2><div class="swatches"><div class="swatch"><i style="background:var(--accent)"></i>--accent</div><div class="swatch"><i style="background:var(--surface)"></i>--surface</div><div class="swatch"><i style="background:var(--surface-raised)"></i>--surface-raised</div><div class="swatch"><i style="background:var(--danger)"></i>--danger</div><div class="swatch"><i style="background:var(--success)"></i>--success</div></div>
+  <p><code>--text / --text-2 / --text-3 / --sep / --fill / --fill-2</code></p></div>
+  <h2 class="ghead">排版、间距、形状与阴影</h2><div class="group pad"><p><code>--font</code> 系统字体栈；<code>--mono</code> 系统等宽字体。无远程字体。</p><p><code>--space-1/2/3/4/6</code> = 4 / 8 / 12 / 16 / 24px；<code>--step</code> = 4px。</p><p><code>--r-chrome:18px; --r-row:7px; --r-group:14px; --r-pill:980px;</code></p><p><code>--chrome-fill / --chrome-fill-strong / --chrome-stroke / --chrome-hi / --chrome-shadow / --blur / --sat</code></p><p>布局：<code>--gutter / --side-w / --bar-h</code>；600px、900px 与短屏断点继承原版。</p></div>
+  <h2 class="ghead">壁纸分层</h2><div class="group pad"><p><code>--wallpaper-image / --wallpaper-fit / --wallpaper-position / --wallpaper-blur / --wallpaper-opacity / --wallpaper-tint</code></p><p>环境 → 模糊底图 → 主题遮罩 → 实体内容 → 单层导航玻璃 → 覆盖层。</p><button class="btn" type="button" data-pane="wallpaper">调整壁纸</button></div>
+ </section>
+ <section class="pane" id="pane-wallpaper" data-on="false" aria-labelledby="wallpaper-title" hidden>
+  <header class="phead"><h1 id="wallpaper-title">你的空间，你的背景。</h1><p>本地图片图库 · 不上传、不联网 · 默认使用通用渐变</p></header>
+  <p class="notice" id="wallpaper-status" role="status">正在初始化图库…</p>
+  <div class="group pad"><label class="fld-label" for="wallpaper-files">导入图片（JPEG / PNG / WebP / GIF / AVIF）</label><input class="tin" id="wallpaper-files" type="file" multiple accept="image/jpeg,image/png,image/webp,image/gif,image/avif"><p class="meta">每张 ≤ 8 MiB，总计 ≤ 24 MiB，最多 20 张；解码尺寸 ≤ 40 百万像素。不把图片写入 localStorage。</p><div class="rowbtns"><button class="btn" id="wallpaper-reset" type="button">恢复默认</button></div></div>
+  <h2 class="ghead">布局与材质</h2><div class="group pad">
+   <div class="rw"><div><label class="fld-label" for="wallpaper-fit">适配</label><select class="tin" id="wallpaper-fit"><option value="cover">Cover · 填满</option><option value="contain">Contain · 完整显示</option></select></div><div><label class="fld-label" for="wallpaper-rotate">轮换</label><select class="tin" id="wallpaper-rotate"><option value="0">关闭</option><option value="30">每 30 秒</option><option value="60">每分钟</option><option value="300">每 5 分钟</option></select></div></div>
+   <label class="fld-label" for="wallpaper-x">水平位置</label><div class="range-line"><input id="wallpaper-x" type="range" min="0" max="100" value="50"><output for="wallpaper-x">50%</output></div>
+   <label class="fld-label" for="wallpaper-y">垂直位置</label><div class="range-line"><input id="wallpaper-y" type="range" min="0" max="100" value="50"><output for="wallpaper-y">50%</output></div>
+   <label class="fld-label" for="wallpaper-blur">背景模糊</label><div class="range-line"><input id="wallpaper-blur" type="range" min="0" max="50" value="22"><output for="wallpaper-blur">22px</output></div>
+   <label class="fld-label" for="wallpaper-overlay">遮罩强度（自动跟随主题 / 手动覆盖）</label><div class="range-line"><input id="wallpaper-overlay" type="range" min="0" max="100" value="66"><output for="wallpaper-overlay">自动</output></div>
+  </div>
+  <h2 class="ghead">本地图库</h2><div class="gallery" id="wallpaper-gallery"></div><p class="empty" id="wallpaper-empty">还没有导入图片。选择一张本地图片开始。</p>
+ </section>
+ </main>
+ <nav class="tabbar" aria-label="移动导航"><a class="tablink" href="#components" data-pane="components"><span class="twrap"><svg aria-hidden="true"><use href="#i-grid"/></svg></span>组件</a><a class="tablink" href="#tokens" data-pane="tokens"><span class="twrap"><svg aria-hidden="true"><use href="#i-type"/></svg></span>令牌</a><a class="tablink" href="#wallpaper" data-pane="wallpaper"><span class="twrap"><svg aria-hidden="true"><use href="#i-image"/></svg></span>壁纸</a><button class="tablink" id="btn-sheet" type="button" aria-expanded="false" aria-controls="sheet"><span class="twrap"><svg aria-hidden="true"><use href="#i-more"/></svg></span>更多</button></nav>
+</div>
+<div class="dim" id="dim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true"><div class="sheethead"><span id="sheet-title">外观与操作</span><button class="sheetclose" type="button" id="sheet-close" aria-label="关闭">×</button></div><button class="navrow" type="button" data-theme-toggle>切换主题</button><button class="navrow" type="button" data-pane="wallpaper">壁纸设置</button></div>
+<div class="scrim" id="scrim"></div>
+<div class="dlg" id="ui-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title" aria-describedby="dialog-message" aria-hidden="true"><div class="body"><h2 id="dialog-title"></h2><p id="dialog-message"></p><img class="wallpaper-preview" id="dialog-image" alt="所选壁纸预览" hidden></div><div class="btns"><button type="button" id="dialog-cancel">取消</button><button type="button" id="dialog-ok">确定</button></div></div>
+<div class="toast-region" id="toast-region" aria-live="polite" aria-relevant="additions"></div>
+<div class="sr" id="live" role="status" aria-live="polite"></div>
+<noscript>此模板需要启用 JavaScript 才能切换页面、主题及管理壁纸。样式与组件演示仍可查看。</noscript>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Internal provenance tooling — kept locally, never published.
+extract.py
+sources.json
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.log
+.vscode/
+.idea/
